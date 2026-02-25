@@ -6,6 +6,7 @@ import '../css/app.css';
 import DashboardLayout from '@/layouts/dashboard-layout.vue';
 import CashierLayout from '@/layouts/cashier-layout.vue';
 import i18n from './i18n';
+import BaseLayout from './layouts/base-layout.vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -18,6 +19,8 @@ createInertiaApp({
             page.default.layout = page.default.layout || DashboardLayout;
         } else if (name.startsWith('cashier/')) {
             page.default.layout = page.default.layout || CashierLayout;
+        } else {
+            page.default.layout = page.default.layout || BaseLayout;
         }
         return page;
     },
@@ -28,6 +31,6 @@ createInertiaApp({
             .mount(el);
     },
     progress: {
-        color: '#4B5563',
+        color: '#218838',
     },
 });

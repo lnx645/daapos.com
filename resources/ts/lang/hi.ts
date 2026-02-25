@@ -8,6 +8,7 @@ export default {
         submit_btn: 'अभी लॉगिन करें',
         email_placeholder: 'अपना ईमेल या उपयोगकर्ता नाम दर्ज करें',
         password_placeholder: 'अपना पासवर्ड दर्ज करें',
+        remember_me: 'मुझे याद रखें',
         register_link: 'मुफ्त पंजीकरण',
         or: 'या',
         activate_device: 'नया डिवाइस सक्रिय करें',

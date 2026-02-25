@@ -8,6 +8,7 @@ export default {
         submit_btn: '立即登录',
         email_placeholder: '请输入您的电子邮箱或用户名',
         password_placeholder: '请输入密码',
+        remember_me: '记住我',
         register_link: '免费注册',
         or: '或',
         activate_device: '激活新设备',

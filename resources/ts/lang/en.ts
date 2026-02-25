@@ -9,6 +9,7 @@ export default {
         email_placeholder: 'Enter your email or username',
         password_placeholder: 'Enter your password',
         register_link: 'Sign Up Free',
+        remember_me: 'Remember Me',
         or: 'Or',
         activate_device: 'Activate New Device',
         dont_have_an_account_yet: "Don't have an account yet?",

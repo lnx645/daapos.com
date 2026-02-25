@@ -10,6 +10,7 @@ export default {
         password_placeholder: 'パスワードを入力',
         register_link: '無料で登録',
         or: 'または',
+        remember_me: 'ログイン状態を保持する',
         activate_device: '新しいデバイスを有効化',
         google_login: 'Googleでログイン',
         dont_have_an_account_yet: 'アカウントをお持ちではありませんか？',

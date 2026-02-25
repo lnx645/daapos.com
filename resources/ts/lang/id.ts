@@ -10,6 +10,7 @@ export default {
         password_placeholder: 'Masukkan kata sandi',
         register_link: 'Daftar Gratis',
         or: 'Atau',
+        remember_me: 'Ingat Saya',
         activate_device: 'Aktivasi Device Baru',
         google_login: 'Login Dengan Google',
         dont_have_an_account_yet: 'Belum Punya Akun?',

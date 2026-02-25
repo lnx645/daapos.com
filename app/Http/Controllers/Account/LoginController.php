@@ -14,4 +14,9 @@ class LoginController extends Controller
     {
         return $this->renderInertia('login');
     }
+    public function checkLogin(Request $request)
+    {
+
+       return;
+    }
 }

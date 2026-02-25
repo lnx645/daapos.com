@@ -5,15 +5,13 @@ import PasswordIcon from '@/components/icons/password-icon.vue';
 import LangSelector from '@/components/lang-selector.vue';
 import Button from '@/ui/button.vue';
 import Input from '@/ui/input.vue';
-import { cashier_home } from '@routes/cashier';
 import { useI18n } from 'vue-i18n';
+import { useAuth } from '../composables/useAuth';
+import Checkbox from '@/ui/checkbox.vue';
 
 let { t, locale } = useI18n();
 
-function toggleLanguage() {
-    locale.value = locale.value === 'id' ? 'en' : 'id';
-    localStorage.setItem('user-locale', locale.value);
-}
+let { data, submit } = useAuth();
 </script>
 
 <template>
@@ -67,8 +65,14 @@ function toggleLanguage() {
                     </p>
                 </div>
 
-                <form @submit.prevent class="space-y-4">
-                    <Input input-size="lg" :label="t('auth.email_label')" :placeholder="t('auth.email_placeholder')" class="w-full">
+                <form @submit.prevent="submit" class="space-y-4">
+                    <Input
+                        v-model="data.email"
+                        input-size="lg"
+                        :label="t('auth.email_label')"
+                        :placeholder="t('auth.email_placeholder')"
+                        class="w-full"
+                    >
                         <template #icon>
                             <EmailIcon class="h-5 w-5 text-slate-400" />
                         </template>
@@ -76,6 +80,7 @@ function toggleLanguage() {
 
                     <div class="space-y-1">
                         <Input
+                            v-model="data.password"
                             input-size="lg"
                             :label="t('auth.password_label')"
                             type="password"
@@ -92,7 +97,7 @@ function toggleLanguage() {
                             </a>
                         </div>
                     </div>
-
+                    <Checkbox v-model="data.remember_me" :label="t('auth.remember_me')" id="remember_me" />
                     <div class="pt-2">
                         <Button variant="primary" class="w-full rounded-lg py-5 text-base font-bold shadow-md shadow-blue-100">
                             {{ t('auth.submit_btn') }}
