@@ -1,10 +1,83 @@
-@import "tailwindcss/theme" layer(tailwind.theme);
-/* @import "tailwindcss/preflight.css" layer(tailwind.reset); <-- skipped intentionally */
-@import "tailwindcss/utilities" layer(tailwind.utilities);
+@import "tailwindcss";
+
+@layer theme, base, components, vuetify, utilities;
+
+@layer theme {
+    :root {
+        --color-primary: #4f46e5;
+        /* Indigo 600 */
+        --color-secondary: #0ea5e9;
+        /* Sky 500 */
+        --color-success: #10b981;
+        /* Emerald 500 */
+        --color-warning: #f59e0b;
+        /* Amber 500 */
+        --color-error: #ef4444;
+        /* Red 500 */
+        --color-info: #6366f1;
+        /* Indigo 500 */
+        --color-background: #ffffff;
+        --color-surface: #f8fafc;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-primary: #818cf8;
+            /* Indigo 400 (Lebih terang untuk kontras dark) */
+            --color-secondary: #38bdf8;
+            /* Sky 400 */
+            --color-background: #0f172a;
+            /* Slate 900 */
+            --color-surface: #1e293b;
+            /* Slate 800 */
+        }
+    }
+
+    @theme {
+        --color-primary: var(--color-primary);
+        --color-secondary: var(--color-secondary);
+        --color-success: var(--color-success);
+        --color-warning: var(--color-warning);
+        --color-error: var(--color-error);
+        --color-info: var(--color-info);
+        --color-background: var(--color-background);
+        --color-surface: var(--color-surface);
+        --shadow-toast: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@layer vuetify {
+    @import "vuetify/styles";
+}
+
+@layer utilities {
+    @tailwinds utilities;
+}
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme inline {
     --font-sans: Instrument Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@theme {
+    --color-primary: #1867C0;
+    --color-secondary: #5CBBF6;
+}
+
+@layer utilities {
+    .glass-toast {
+        backdrop-filter: blur(12px) saturate(180%);
+        background-color: rgba(var(--v-theme-surface), 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .toast-title {
+        @apply text-slate-900 font-bold !important;
+    }
+
+    .toast-message {
+        @apply text-slate-600 !important;
+    }
 }

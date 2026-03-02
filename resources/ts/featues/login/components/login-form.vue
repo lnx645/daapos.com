@@ -45,7 +45,7 @@ const { data, submit } = useAuth();
     </div>
 
     <div class="flex w-full flex-col overflow-y-auto bg-white px-8 py-10 sm:px-16 lg:w-[40%] lg:px-20">
-      <div class="mx-auto my-auto w-full max-w-[400px]">
+      <div class="mx-auto my-auto w-full max-w-100">
         
         <div class="mb-8 text-center lg:text-left">
           <h2 class="text-3xl font-bold text-slate-900">{{ t('auth.login') }}</h2>
@@ -88,7 +88,7 @@ const { data, submit } = useAuth();
               type="submit"
               block
               size="large"
-              color="#16a34a" 
+              color="primary"
               class="text-none font-weight-bold elevation-0 rounded-lg"
               style="height: 48px"
             >

@@ -16,7 +16,7 @@ export const useAuth = () => {
         let toast = useToast();
         data.submit(login_post(), {
             onFinish: () => {
-                toast.addToast('Success', 'Logged in successfully', 'info');
+                toast.addToast('Success', 'Logged in successfully', 'success');
             },
         });
     };
