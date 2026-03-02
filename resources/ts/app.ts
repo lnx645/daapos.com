@@ -1,12 +1,14 @@
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import type { DefineComponent } from 'vue';
+import "@/lib/fonts";
 import { createApp, h } from 'vue';
 import '../css/app.css';
-import DashboardLayout from '@/layouts/dashboard-layout.vue';
+import DefaultLayout from '@/layouts/default.vue';
 import CashierLayout from '@/layouts/cashier-layout.vue';
 import i18n from './i18n';
 import BaseLayout from './layouts/base-layout.vue';
+import vuetify from './lib/vuetify';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -16,7 +18,7 @@ createInertiaApp({
         const page = await resolvePageComponent(`./pages/${name}.vue`, import.meta.glob<DefineComponent>('./pages/**/*.vue'));
 
         if (name.startsWith('dashboard/')) {
-            page.default.layout = page.default.layout || DashboardLayout;
+            page.default.layout = page.default.layout || DefaultLayout;
         } else if (name.startsWith('cashier/')) {
             page.default.layout = page.default.layout || CashierLayout;
         } else {
@@ -28,6 +30,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(i18n)
+            .use(vuetify)
             .mount(el);
     },
     progress: {

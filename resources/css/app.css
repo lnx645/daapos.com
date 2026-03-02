@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss/theme" layer(tailwind.theme);
+/* @import "tailwindcss/preflight.css" layer(tailwind.reset); <-- skipped intentionally */
+@import "tailwindcss/utilities" layer(tailwind.utilities);
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
